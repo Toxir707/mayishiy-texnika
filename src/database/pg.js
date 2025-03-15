@@ -22,8 +22,5 @@ async function query(queryStr,params) {
         client.release();
     }
 }
-
-query("SELECT * FROM products", []),
-query("INSERT INTO products(name) VALUES ($);", ["Muzlatgich"]),
-
+ 
 module.exports = query;
