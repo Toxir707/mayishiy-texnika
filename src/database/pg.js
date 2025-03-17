@@ -11,7 +11,7 @@ const pool = new Pool({
     database: process.env.DB_DATABASE
 });
 
-async function query(queryStr,params) {
+async function query(queryStr,params = []) {
     const client = await pool.connect();
     try {
         const { rows } = await client.query(queryStr, params.length ? params: null)
@@ -22,5 +22,7 @@ async function query(queryStr,params) {
         client.release();
     }
 }
+
+
  
 module.exports = query;
